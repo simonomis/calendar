@@ -14,7 +14,12 @@
 </div>
 
 <div class="controls">
-  <a class="ajax" id="back" title="Back">Back</a> --
-  <a class="ajax" id="edit" event="<%=h @event.id %>" title="Edit">Edit</a> --
-  <%= link_to 'Delete', @event, :confirm => 'Really delete this event?', :method => :delete %>
+  <%= link_to_function "Back", ajax_back_str,
+						:class => "ajax", "title" => "Back" %> --
+
+  <%= link_to_function "Edit", "ajax_load_url('#{edit_event_path(@event)}')",
+						:class => "ajax", "title" => "Edit" %> --
+
+  <%= link_to 'Delete', @event,
+			:confirm => 'Really delete this event?', :method => :delete %>
 </div>

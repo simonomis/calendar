@@ -19,12 +19,6 @@ $(document).ready(function() {
 })
 
 function register_handlers() {
-  $("#back").click(function() {
-	ajax_load_url("/month/" + $("#side").attr("year") + "/" + $("#side").attr("month"))
-  });
-  $("#edit").click(function() {
-	ajax_load_url("/events/" + $(this).attr("event") + "/edit")
-  });
   $("div[event_id]").click(function() {
 	ajax_load_url("/events/" + $(this).attr("event_id"))
   });
