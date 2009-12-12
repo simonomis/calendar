@@ -1,0 +1,77 @@
+
+
+body {
+	font-family: palatino, baskerville, times, times new roman;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.title {
+	margin: 20px;
+	font-size: xx-large;
+	font-weight: bold;
+}
+
+.subtitle {
+	margin-top: 45px;
+	margin-left: 5px;
+	font-size: large;
+	font-weight: bold;
+}
+
+.notice {
+	margin: 20px;
+	color: green;
+	float: right;
+}
+
+.calendar {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.event {
+	margin-top: 10px;
+}
+
+.event-date {
+	font-style: italic;
+}
+
+.event-name {
+}
+
+.event-notes {
+	border: 1px dashed #bbb;
+	margin-right: 25px;
+	padding: 5px;
+}
+
+.ajax {
+	cursor: pointer;
+}
+
+.controls {
+	/*width: 75%;*/
+	margin: 25px;
+	margin-left: 0px;
+	padding: 5px;
+	border: 1px dotted #bbb;
+	text-align: center;
+	color: #555;
+}
+
+#main {
+	width: 75%;
+	float: left;
+}
+
+#side {
+	width: 25%;
+	float: right;
+	font-size: small;
+}

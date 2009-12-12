@@ -1,0 +1,20 @@
+<div class="subtitle">
+  <%=h @event.name %>
+</div>
+
+<div class="event">
+  <%=h date_full @event %>
+</div>
+
+<div class="event">
+  Notes:
+</div>
+<div class="event-notes">
+  <%=h @event.notes %>
+</div>
+
+<div class="controls">
+  <a class="ajax" id="back" title="Back">Back</a> --
+  <a class="ajax" id="edit" event="<%=h @event.id %>" title="Edit">Edit</a> --
+  <%= link_to 'Delete', @event, :confirm => 'Really delete this event?', :method => :delete %>
+</div>

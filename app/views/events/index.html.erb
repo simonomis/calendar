@@ -1,0 +1,11 @@
+<div class="subtitle">
+  Events <%=h @shown_month.strftime("in %b '%y") unless @shown_month.nil? %>
+</div>
+
+<% @events.each do |ev| %>
+<div class="event ajax" event_id="<%=h ev.id %>">
+  <div class="event-date"><%= date_abbrev(ev) %></div>
+  <div class="event-name"><%=h ev.name %></div>
+</div>
+<% end %>
+
