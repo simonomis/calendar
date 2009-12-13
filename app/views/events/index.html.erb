@@ -3,9 +3,10 @@
 </div>
 
 <% @events.each do |ev| %>
-<div class="event ajax" event_id="<%=h ev.id %>">
+<div class="event" event_id="<%=h ev.id %>">
   <div class="event-date"><%= date_abbrev(ev) %></div>
-  <div class="event-name"><%=h ev.name %></div>
+  <%= link_to_function ev.name, "ajax_load_url('#{event_path(ev)}')", :class => "ajax" %>
+  <!-- <div class="event-name"><%=h ev.name %></div> -->
 </div>
 <% end %>
 

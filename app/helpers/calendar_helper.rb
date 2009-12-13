@@ -21,8 +21,8 @@ module CalendarHelper
 
   def event_calendar
     calendar event_calendar_opts do |event|
-      #%(<a href="/events/#{event.id}" title="#{h(event.name)}">#{h(event.name)}</a>)
-      %(<a title="#{h(event.name)}\n#{h(date_full(event))}">#{h(event.name)}</a>)
+      link_to_function event.name, "ajax_load_url('#{event_path(event)}')",
+        :class => "ajax", :title => "#{h(event.name)}\n#{h(date_full(event))}"
     end
   end
 end

@@ -64,8 +64,4 @@ module EventsHelper
     date.strftime("%H:%M")
   end
   
-  def ajax_back_str
-    "ajax_load_url('#{month_path(nil)}/' + $('#side').attr('year') +'/'+ $('#side').attr('month'))"
-  end
-  
 end

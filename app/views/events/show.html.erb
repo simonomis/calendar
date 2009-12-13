@@ -14,12 +14,12 @@
 </div>
 
 <div class="controls">
-  <%= link_to_function "Back", ajax_back_str,
-						:class => "ajax", "title" => "Back" %> --
+  <%= link_to_function "Back", ajax_month_str,
+	:class => "ajax", :title => "Back" %> --
 
   <%= link_to_function "Edit", "ajax_load_url('#{edit_event_path(@event)}')",
-						:class => "ajax", "title" => "Edit" %> --
+	:class => "ajax", :title => "Edit" %> --
 
   <%= link_to 'Delete', @event,
-			:confirm => 'Really delete this event?', :method => :delete %>
+	:confirm => 'Really delete this event?', :method => :delete %>
 </div>

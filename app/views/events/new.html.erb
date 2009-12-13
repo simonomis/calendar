@@ -25,6 +25,7 @@
     <%= f.text_area :notes %>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit 'Create' %> - 
+    <%= link_to_function "Cancel", ajax_month_str, :class => "ajax", "title" => "Cancel" %>
   </p>
 <% end %>
