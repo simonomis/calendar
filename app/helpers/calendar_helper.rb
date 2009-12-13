@@ -29,7 +29,7 @@ module CalendarHelper
   def new_event_link day
     link_to_function("+",
       "ajax_load_url('#{new_event_path(:day => day.day, :month => day.month, :year => day.year)}')",
-      :class => "ec-day-add-event", :title => "Add Event")
+      :class => "ec-day-add-event ajax", :title => "Add Event")
   end
   
 end

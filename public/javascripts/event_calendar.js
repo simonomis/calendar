@@ -12,15 +12,9 @@ $(document).ready(function() {
   $("td.ec-day-header").mouseout(function() {
 	$("a.ec-day-add-event", this).css("visibility", "hidden");
   });
-  /*$("a.ec-day-add-event").click(function() {
-	ajax_load_url("/events/new?day=" + $(this).attr("day") + "&month=" + $("#side").attr("month") + "&year=" + $("#side").attr("year"))
-  });*/
 })
 
 function register_handlers() {
-  /*$("div[event_id]").click(function() {
-	ajax_load_url("/events/" + $(this).attr("event_id"))
-  });*/
   $(".ajax").click(function() {
 	$(".notice").css("visibility", "hidden")
   });
