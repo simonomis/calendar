@@ -25,4 +25,11 @@ module CalendarHelper
         :class => "ajax", :title => "#{h(event.name)}\n#{h(date_full(event))}"
     end
   end
+  
+  def new_event_link day
+    link_to_function("+",
+      "ajax_load_url('#{new_event_path(:day => day.day, :month => day.month, :year => day.year)}')",
+      :class => "ec-day-add-event", :title => "Add Event")
+  end
+  
 end

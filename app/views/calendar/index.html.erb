@@ -15,7 +15,4 @@
 <!-- Load the side bar -->
 <% javascript_tag() do -%>
   ajax_load_url('<%= month_path(:year => @year, :month => @month) %>')
-  $("a.ec-day-add-event").click(function() {
-	ajax_load_url('<%=events_path%>/new?day=' + $(this).attr("day") + '&month=' + $("#side").attr("month") + '&year=' + $("#side").attr("year"))
-  });
 <% end -%>

@@ -157,7 +157,7 @@ module EventCalendar
           cal << %(ec-other-month-header ) if (day < first) || (day > last)
           cal << %(ec-weekend-day-header) if weekend?(day)
           cal << %(" style="height: #{options[:day_nums_height]}px;">)
-          cal << %(<a class="ec-day-add-event" day="#{day.day}" title="Add Event">+</a>)
+          cal << new_event_link(day) if respond_to? :new_event_link
           if options[:link_to_day_action]
             cal << day_link(day.day, day, options[:link_to_day_action])
           else
