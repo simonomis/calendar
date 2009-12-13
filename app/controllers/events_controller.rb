@@ -103,7 +103,8 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to("/#{@event.start_at.year}/#{@event.start_at.month}") }
+      format.html { redirect_to(calendar_path(:year => @event.start_at.year,
+        :month => @event.start_at.month)) }
       format.xml  { head :ok }
     end
   end
