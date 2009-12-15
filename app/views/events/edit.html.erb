@@ -26,6 +26,7 @@
   </p>
   <p>
     <%= f.submit 'Submit' %> - 
-    <%= link_to_function "Cancel", ajax_month_str, :class => "ajax", "title" => "Cancel" %>
+    <%= link_to_function "Cancel", "ajax_month_index('#{month_path(nil)}');",
+		:class => "ajax", "title" => "Cancel" %>
   </p>
 <% end %>

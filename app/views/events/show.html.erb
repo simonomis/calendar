@@ -14,7 +14,7 @@
 </div>
 
 <div class="controls">
-  <%= link_to_function "Back", ajax_month_str,
+  <%= link_to_function "Back", "ajax_month_index('#{month_path(nil)}');",
 	:class => "ajax", :title => "Back" %> --
 
   <%= link_to_function "Edit", "ajax_load_url('#{edit_event_path(@event)}')",

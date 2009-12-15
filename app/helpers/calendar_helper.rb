@@ -1,4 +1,5 @@
 module CalendarHelper
+  
   def month_link(month_date)
     link_to(month_date.strftime("%B"), {:month => month_date.month, :year => month_date.year}, :class => 'month_link')
   end
@@ -29,7 +30,7 @@ module CalendarHelper
   def new_event_link day
     link_to_function("+",
       "ajax_load_url('#{new_event_path(:day => day.day, :month => day.month, :year => day.year)}')",
-      :class => "ec-day-add-event ajax", :title => "Add Event")
+      :class => "ec-day-add-event ajax", :style => "display: none", :title => "Add Event")
   end
   
 end
