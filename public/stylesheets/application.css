@@ -16,9 +16,8 @@ a {
 }
 
 .subtitle {
-	margin-top: 45px;
-	margin-left: 5px;
-	font-size: large;
+	margin: 10px;
+	font-size: x-large;
 	font-weight: bold;
 }
 
@@ -65,17 +64,7 @@ a {
 	color: #555;
 }
 
-#main {
-	width: 75%;
-	float: left;
-}
-
-#side {
-	width: 25%;
-	float: right;
-	font-size: small;
-}
-
+/* RedBox window style */
 #RB_window {
 	padding: 0 10px 0 10px;
 	border: dashed 3px #bbb;

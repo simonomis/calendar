@@ -13,6 +13,7 @@ module CalendarHelper
       :month_name_text => @shown_month.strftime("%B %Y"),
       :previous_month_text => "<< " + month_link(@shown_month.last_month),
       :next_month_text => month_link(@shown_month.next_month) + " >>",
+      :abbrev => (0..-1),
       :event_height => 17,
       :event_margin => 2,
       :event_padding_top => 2,

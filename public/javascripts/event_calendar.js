@@ -23,27 +23,11 @@ document.observe('dom:loaded', function() {
 			el.select("a.ec-day-add-event")[0].hide();
 		});
 	});
-});
-
-function register_handlers() {
-	$$(".ajax").each(function(el) {
+	
+	/* Hide the "Event created/updated/deleted" message when clicking on ajax links */
+	$$("a.ajax").each(function(el) {
 		$(el).observe('click', function() {
 			$$("div.notice")[0].hide();
 		});
 	});
-}
-
-function ajax_load_url(url) {
-	new Ajax.Updater('side', url, {
-		method: 'get',
-		onComplete: function() {
-			register_handlers();
-		}
-	});
-}
-
-function ajax_month_index(url_prefix) {
-	var year = $("side").readAttribute("year");
-	var month = $("side").readAttribute("month");
-	ajax_load_url(url_prefix + '/' + year + '/' + month)
-}
+});
