@@ -12,6 +12,9 @@
 
 </div>
 
+<%= link_to_remote_redbox "Test", { :method => "get",
+:url => { :controller => "events", :action => "show", :id => 11 } } %>
+
 <!-- Load the side bar -->
 <% javascript_tag() do -%>
   ajax_load_url('<%= month_path(:year => @year, :month => @month) %>')

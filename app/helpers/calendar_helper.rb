@@ -16,21 +16,23 @@ module CalendarHelper
       :event_height => 17,
       :event_margin => 2,
       :event_padding_top => 2,
-      :use_javascript => false
+      :use_javascript => false  # don't need the javascript the helper creates
     }
   end
 
   def event_calendar
     calendar event_calendar_opts do |event|
-      link_to_function event.name, "ajax_load_url('#{event_path(event)}')",
-        :class => "ajax", :title => "#{h(event.name)}\n#{h(date_full(event))}"
+      link_to_remote_redbox event.name, { :method => "get",
+        :url => { :controller => "events", :action => "show", :id => event.id } },
+        :class => "ajax", :title => event.name
     end
   end
   
   def new_event_link day
-    link_to_function("+",
-      "ajax_load_url('#{new_event_path(:day => day.day, :month => day.month, :year => day.year)}')",
-      :class => "ec-day-add-event ajax", :style => "display: none", :title => "Add Event")
+    link_to_remote_redbox "+", { :method => "get",
+      :url => { :controller => "events", :action => "new",
+        :day => day.day, :month => day.month, :year => day.year } },
+      :class => "ec-day-add-event ajax", :style => "display: none", :title => "Add Event"
   end
   
 end

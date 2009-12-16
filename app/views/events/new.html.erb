@@ -26,7 +26,6 @@
   </p>
   <p>
     <%= f.submit 'Create' %> - 
-    <%= link_to_function "Cancel", "ajax_month_index('#{month_path(nil)}');",
-		:class => "ajax", "title" => "Cancel" %>
+    <%= link_to_close_redbox "Cancel", :class => "ajax", "title" => "Cancel" %>
   </p>
 <% end %>

@@ -1,4 +1,8 @@
 class EventsController < ApplicationController
+  
+  # Don't use the layout for AJAX methods
+  layout "events.html", :except => [:show, :edit, :new]
+  
   # GET /events
   # GET /events.xml
   def index
