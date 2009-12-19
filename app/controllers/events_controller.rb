@@ -66,7 +66,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        flash[:notice] = 'Event was successfully created.'
+        flash[:notice] = '"' + @event.name + '" has been added.'
         format.html { redirect_to(calendar_path(:year => @event.start_at.year,
           :month => @event.start_at.month)) }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
@@ -90,7 +90,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        flash[:notice] = @event.name + ' was successfully updated.'
+        flash[:notice] = '"' + @event.name + '" has been updated.'
         format.html { redirect_to(calendar_path(:year => @event.start_at.year,
           :month => @event.start_at.month)) }
         format.xml  { head :ok }
@@ -108,6 +108,7 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
+      flash[:notice] = '"' + @event.name + '" has been deleted.'
       format.html { redirect_to(calendar_path(:year => @event.start_at.year,
         :month => @event.start_at.month)) }
       format.xml  { head :ok }
