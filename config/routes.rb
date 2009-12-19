@@ -2,7 +2,6 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :events
   
-  map.month '/month/:year/:month', :controller => 'events', :action => 'index', :year => Time.zone.now.year, :month => Time.zone.now.month
   map.calendar '/:year/:month', :controller => 'calendar', :action => 'index', :year => Time.zone.now.year, :month => Time.zone.now.month
   
   # The priority is based upon order of creation: first created -> highest priority.

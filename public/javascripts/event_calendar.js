@@ -1,3 +1,4 @@
+/* event_calendar specific javascript */
 
 document.observe('dom:loaded', function() {
 	/* Event highlighting (goes across rows) */
@@ -21,13 +22,6 @@ document.observe('dom:loaded', function() {
 		});
 		$(el).observe('mouseout', function() {
 			el.select("a.ec-day-add-event")[0].hide();
-		});
-	});
-	
-	/* Hide the "Event created/updated/deleted" message when clicking on ajax links */
-	$$("a.ajax").each(function(el) {
-		$(el).observe('click', function() {
-			$$("div.notice")[0].hide();
 		});
 	});
 });

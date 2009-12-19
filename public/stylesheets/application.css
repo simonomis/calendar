@@ -15,12 +15,6 @@ a {
 	font-weight: bold;
 }
 
-.subtitle {
-	margin: 10px;
-	font-size: x-large;
-	font-weight: bold;
-}
-
 .notice {
 	margin: 20px;
 	color: green;
@@ -33,35 +27,32 @@ a {
 	margin-right: auto;
 }
 
-.event {
+div.event {
 	margin-top: 10px;
 }
 
-.event-date {
-	font-style: italic;
+div.event-name {
+	margin: 15px;
+	font-size: x-large;
+	font-weight: bold;
 }
 
-.event-name {
+table.event-info {
+	margin: 20px;
 }
 
-.event-notes {
-	border: 1px dashed #bbb;
-	margin-right: 25px;
-	padding: 5px;
-}
-
-.ajax {
-	cursor: pointer;
-}
-
-.controls {
-	/*width: 75%;*/
-	margin: 25px;
-	margin-left: 0px;
-	padding: 5px;
-	border: 1px dotted #bbb;
-	text-align: center;
+td.event-label {
+	text-align: right;
+	font-weight: bold;
 	color: #555;
+	padding-right: 10px;
+}
+
+div.event-separator {
+	border-top: 1px dotted #bbb;
+	/*width: 85%;*/
+	height: 0px;
+	margin: auto;
 }
 
 /* RedBox window style */

@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   
   # GET /events
   # GET /events.xml
+=begin
   def index
     @month = params[:month].to_i
     @year = params[:year].to_i
@@ -21,6 +22,7 @@ class EventsController < ApplicationController
       format.xml  { render :xml => @events }
     end
   end
+=end
 
   # GET /events/1
   # GET /events/1.xml
@@ -39,7 +41,6 @@ class EventsController < ApplicationController
     @event = Event.new
     @event.start_at = Time.utc params[:year], params[:month], params[:day]
     @event.end_at = @event.start_at
-    @event.all_day = true
 
     respond_to do |format|
       format.html # new.html.erb
@@ -112,15 +113,5 @@ class EventsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
-  def events_for_month(month_date)
-    start_d = Date.civil(month_date.year, month_date.month, 1)
-    end_d = start_d.next_month
-    Event.find(
-      :all,
-      :conditions => [ '(start_at >= ?) AND (start_at < ?)', start_d.to_time.utc, end_d.to_time.utc ],
-      :order => 'start_at ASC'
-    )
-  end
-  
+
 end

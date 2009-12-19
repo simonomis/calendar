@@ -1,25 +1,38 @@
-<div class="subtitle">
+<div class="event-name">
   <%=h @event.name %>
 </div>
 
 <div class="event">
-  <%=h date_full @event %>
+  <table class="event-info">
+<% if @event.all_day -%>
+    <tr>
+      <td class="event-label">all-day:</td>
+      <td class="event-value"><input type="checkbox" checked disabled /></td>
+    </tr>
+<% end -%>
+    <tr>
+      <td class="event-label">from:</td>
+      <td class="event-value"><%=h event_start_string(@event) %></td>
+    </tr>
+    <tr>
+      <td class="event-label">to:</td>
+      <td class="event-value"><%=h event_end_string(@event) %></td>
+    </tr>
+<% unless @event.notes.nil? or @event.notes.empty? -%>
+    <tr>
+      <td class="event-label">note:</td>
+      <td class="event-value"><%=h @event.notes %></td>
+    </tr>
+<% end -%>
+  </table>
 </div>
 
-<div class="event">
-  Notes:
-</div>
+<div class="event-separator"></div>
 
-<div class="event-notes">
-  <%=h @event.notes %>
-</div>
-
-<div class="controls">
-  <%= link_to_close_redbox "Back" %> --
-
+<p>
   <%= link_to_remote_redbox "Edit", { :method => "get",
-		:url => { :action => "edit", :id => @event.id }	} %> --
+		:url => { :action => "edit", :id => @event.id }	} %> -
 	
   <%= link_to 'Delete', @event, :method => :delete,
 		:confirm => 'Really delete this event?' %>
-</div>
+</p>
