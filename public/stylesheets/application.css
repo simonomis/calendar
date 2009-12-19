@@ -28,7 +28,6 @@ a {
 }
 
 div.event {
-	margin-top: 10px;
 }
 
 div.event-name {
@@ -39,6 +38,7 @@ div.event-name {
 
 table.event-info {
 	margin: 20px;
+	margin-top: 0px;
 }
 
 td.event-label {
