@@ -1,8 +1,8 @@
-<div class="event-name">
-  <%=h @event.name %>
-</div>
-
 <div class="event">
+  <div class="event-name">
+    <%=h @event.name %>
+  </div>
+
   <table class="event-info">
 <% if @event.all_day -%>
     <tr>
@@ -25,14 +25,14 @@
     </tr>
 <% end -%>
   </table>
-</div>
 
-<div class="event-separator"></div>
+  <div class="event-separator"></div>
 
-<p>
-  <%= link_to_remote_redbox "Edit", { :method => "get",
-		:url => { :action => "edit", :id => @event.id }	} %> -
+  <p>
+    <%= link_to_remote_redbox "Edit", { :method => "get",
+          :url => { :action => "edit", :id => @event.id }	} %> -
 	
-  <%= link_to 'Delete', @event, :method => :delete,
-		:confirm => 'Really delete this event?' %>
-</p>
+    <%= link_to 'Delete', @event, :method => :delete,
+          :confirm => 'Really delete this event?' %>
+  </p>
+</div>

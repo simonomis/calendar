@@ -28,18 +28,18 @@ a {
 }
 
 div.event {
-	margin-top: 10px;
+	margin: 10px;
+	width: 250px;
 }
 
 div.event-name {
-	margin: 15px;
+	margin: 15px 5px 15px 5px;
 	font-size: x-large;
 	font-weight: bold;
 }
 
 table.event-info {
-	margin: 20px;
-	margin-top: 0px;
+	margin: 0px 10px 20px 10px;
 }
 
 td.event-label {
@@ -47,6 +47,8 @@ td.event-label {
 	font-weight: bold;
 	color: #555;
 	padding-right: 10px;
+	width: 60px;
+	vertical-align: top;
 }
 
 div.event-separator {
