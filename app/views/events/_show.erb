@@ -1,0 +1,27 @@
+
+<div class="event-name">
+  <%=h event.name %>
+</div>
+
+<table class="event-info">
+<% if event.all_day -%>
+  <tr>
+    <td class="event-label">all-day:</td>
+    <td class="event-value"><input type="checkbox" checked disabled /></td>
+  </tr>
+<% end -%>
+  <tr>
+    <td class="event-label">from:</td>
+    <td class="event-value"><%=h event_start_string(event) %></td>
+  </tr>
+  <tr>
+    <td class="event-label">to:</td>
+    <td class="event-value"><%=h event_end_string(event) %></td>
+  </tr>
+<% unless event.notes.nil? or event.notes.empty? -%>
+  <tr>
+    <td class="event-label">note:</td>
+    <td class="event-value"><%=h event.notes %></td>
+  </tr>
+<% end -%>
+</table>
