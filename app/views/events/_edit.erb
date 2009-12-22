@@ -23,7 +23,7 @@
     <%= f.datetime_select :end_at, :datetime_separator => "<span id='event_end_time'#{style}><br />", :minute_step => 15 %></span>
   </p>
   <p id="reminders">
-    Reminders - <%= add_link f %><br />
+    Reminders <%= add_link f %><br />
 	<%= render 'reminder', :pf => f, :ff_args => :reminders %>
   </p>
   <p>

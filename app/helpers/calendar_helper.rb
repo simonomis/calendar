@@ -30,7 +30,8 @@ module CalendarHelper
   end
   
   def new_event_link day
-    link_to_remote_redbox "+", { :method => "get",
+    icon = image_tag 'add.gif', :class => 'icon' #, :height => 12, :width => 12
+    link_to_remote_redbox icon, { :method => "get",
       :url => { :controller => "events", :action => "new",
         :day => day.day, :month => day.month, :year => day.year } },
       :class => "ec-day-add-event ajax", :style => "display: none", :title => "Add Event"

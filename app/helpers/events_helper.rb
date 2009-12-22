@@ -14,18 +14,20 @@ module EventsHelper
   
   # For javascript adding deleting reminders
   def remove_link f
+    icon = image_tag 'subtract.gif', :class => 'icon'
     if f.object.new_record?
-      link_to_function "remove", "$(this).up('.#{f.object.class.name.underscore}').remove()"
+      link_to_function icon, "$(this).up('.#{f.object.class.name.underscore}').remove()"
     else
       out = ''
       out << f.hidden_field(:_delete)
-      out << link_to_function("remove", "$(this).up('.#{f.object.class.name.underscore}').hide(); $(this).previous().value = '1'")
+      out << link_to_function(icon, "$(this).up('.#{f.object.class.name.underscore}').hide(); $(this).previous().value = '1'")
       out
     end
   end
 
   def add_link f
-    link_to_function 'add' do |page|
+    icon = image_tag 'add.gif', :class => 'icon'
+    link_to_function icon do |page|
       div = render('reminder', :pf => f, :ff_args => [:reminders, Reminder.new])
       page << "$('reminders').insert({ bottom: '#{ escape_javascript div }' });"
     end
