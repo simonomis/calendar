@@ -1,0 +1,8 @@
+
+<% pf.fields_for *ff_args do |reminder_f| %>
+  <div class="reminder">
+    <%= reminder_f.text_field :email_address, :size => 15 %>
+    <%= reminder_f.select :send_at, 0..14 %>
+    <%= remove_link reminder_f %>
+  </div>
+<% end %>
