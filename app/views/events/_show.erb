@@ -18,6 +18,17 @@
     <td class="event-label">to:</td>
     <td class="event-value"><%=h event_end_string(event) %></td>
   </tr>
+<% unless event.reminders.nil? or event.reminders.empty? -%>
+  <tr>
+    <td class="event-label">reminders:</td>
+    <td class="event-value">
+      <% event.reminders.each do |rem| %>
+        <%=h truncate(rem.email_address, 18) %><br />
+        <%=h days_before_hash[rem.days_before_to_send] %><br />
+      <% end %>
+    </td>
+  </tr>
+<% end -%>
 <% unless event.notes.nil? or event.notes.empty? -%>
   <tr>
     <td class="event-label">note:</td>
