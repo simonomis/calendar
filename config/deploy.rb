@@ -19,10 +19,12 @@ default_run_options[:pty] = true
 
 namespace :deploy do
 
+  desc "Start the Rails application"
   task :start do
     run "touch #{current_release}/tmp/restart.txt"
   end
 
+  desc "Stop the Rails application"
   task :stop do
     # nothing to do
   end
@@ -31,15 +33,25 @@ namespace :deploy do
   task :restart do
     run "touch #{current_release}/tmp/restart.txt"
   end
-  
-  desc "Creates the symlink in www root to the rails application"
-  task :rails_symlink do
-    run "ln -s #{deploy_to}/#{current_dir}/public #{apache_root}/#{application}"
-  end
  
+  namespace :symlinks do
+
+    desc "Creates the symlink in www root to the rails application"
+    task :rails do
+      run "ln -s #{deploy_to}/#{current_dir}/public #{apache_root}/#{application}"
+    end
+
+    desc "Creates the symlink in /etc/cron.daily to the reminders email script"
+    task :reminders, :use_sudo => true do
+      run "ln -s #{current_path}/script/reminders /etc/cron.daily/"
+    end
+
+  end
+  
 end
 
-after "deploy:cold",  "deploy:rails_symlink"
+after "deploy:cold", "deploy:symlinks:rails"
+after "deploy:cold", "deploy:symlinks:reminders"
 
 # The following sets up the production sqlite3 database
 namespace :db do

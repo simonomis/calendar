@@ -1,2 +1,2 @@
-#!/usr/bin/env /var/www/rails/calendar/current/script/runner
-Reminder.send_all_reminders_for_today
+#!/bin/sh
+RAILS_ENV=production /var/www/rails/calendar/current/script/runner Reminder.send_all_reminders_for_today
