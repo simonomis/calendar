@@ -14,9 +14,9 @@ module CalendarHelper
       :previous_month_text => "<< " + month_link(@shown_month.last_month),
       :next_month_text => month_link(@shown_month.next_month) + " >>",
       :abbrev => (0..-1),
-      :event_height => 17,
+      :event_height => 18,
       :event_margin => 2,
-      :event_padding_top => 2,
+      :event_padding_top => 3,
       :use_javascript => false  # don't need the javascript the helper creates
     }
   end
