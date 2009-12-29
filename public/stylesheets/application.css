@@ -21,6 +21,13 @@ a {
 	float: right;
 }
 
+.error {
+	margin: 20px;
+	color: red;
+	float: right;
+	font-weight: bold;
+}
+
 .calendar {
 	width: 90%;
 	margin-left: auto;
