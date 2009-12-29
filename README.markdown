@@ -9,6 +9,7 @@ Setup Instructions
 ==================
 
 For the reminder emails to work:
+
 1. set the SMTP server config in config/environments/production.rb
 2. edit script/reminders so that it has the correct path to the Calendar application
 3. create a symbolic link to script/reminders from /etc/cron.daily:
