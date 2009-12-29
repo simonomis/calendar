@@ -2,14 +2,14 @@
 
 document.observe('dom:loaded', function() {
 	/* Event highlighting (goes across rows) */
-	$$("div[event_id].ec-event").each(function(el) {
+	$$("div[data-event-id].ec-event-bg").each(function(el) {
 		$(el).observe('mouseover', function() {
-			$$("div[event_id='"+$(this).readAttribute("event_id")+"'].ec-event").each (function(el2) {
+			$$("div[data-event-id='"+$(this).readAttribute("data-event-id")+"'].ec-event-bg").each (function(el2) {
 				el2.setStyle({ backgroundColor: "#2EAC6A" });
 			});
 		});
 		$(el).observe('mouseout', function() {
-			$$("div[event_id='"+$(this).readAttribute("event_id")+"'].ec-event").each (function(el2) {
+			$$("div[data-event-id='"+$(this).readAttribute("data-event-id")+"'].ec-event-bg").each (function(el2) {
 				el2.setStyle({ backgroundColor: "#9aa4ad" });
 			});
 		});

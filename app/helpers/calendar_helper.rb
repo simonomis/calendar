@@ -17,13 +17,16 @@ module CalendarHelper
       :event_height => 18,
       :event_margin => 2,
       :event_padding_top => 3,
-      :use_javascript => false  # don't need the javascript the helper creates
+      :use_javascript => true,
+      :use_all_day => true
     }
   end
 
   def event_calendar
-    calendar event_calendar_opts do |event|
-      link_to_remote_redbox event.name, { :method => "get",
+    calendar event_calendar_opts do |args|
+      event, day = args[:event], args[:day]
+      event_display = display_event_time(event, day) + event.name
+      link_to_remote_redbox event_display, { :method => "get",
         :url => { :controller => "events", :action => "show", :id => event.id } },
         :class => "ajax", :title => event.name
     end
@@ -35,6 +38,15 @@ module CalendarHelper
       :url => { :controller => "events", :action => "new",
         :day => day.day, :month => day.month, :year => day.year } },
       :class => "ec-day-add-event ajax", :style => "display: none", :title => "Add Event"
+  end
+  
+  def display_event_time(event, day)
+    time = event.start_at
+    if !event.all_day and time.to_date == day
+      %(<span class="ec-event-time">#{time.strftime("%H:%M")}</span>)
+    else
+      ""
+    end
   end
   
 end
