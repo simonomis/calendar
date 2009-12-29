@@ -8,4 +8,11 @@ class Reminder < ActiveRecord::Base
     day_to_send.today?
   end
   
+  # Class method for sending all reminders due today
+  def self.send_all_reminders_for_today
+    reminders_to_send = all.select do |rem|
+      ReminderMailer.deliver_reminder_email rem if rem.send_today?
+    end
+  end
+  
 end
