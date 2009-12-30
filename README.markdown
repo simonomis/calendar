@@ -8,10 +8,11 @@ Use it to keep track of upcoming events and arrange for email reminders to be se
 Setup Instructions
 ==================
 
-For the reminder emails to work:
+To install it on a production server, edit <code>config/deploy.rb</code> to have the correct variable (e.g. server, repository, etc), then:
 
-1. set the SMTP server config in config/environments/production.rb
-2. edit script/reminders so that it has the correct path to the Calendar application
-3. create a symbolic link to script/reminders from /etc/cron.daily:
-	ln -s /path/to/calendar/script/reminders /etc/cron.daily/
+1. <pre><code>cap deploy:setup</code></pre> (will prompt for an SMTP server and web server hostname)
+2. <pre><code>cap deploy:cold</code></pre>
 
+Then after the first deploy, just do the following to update the code:
+
+	cap deploy

@@ -38,20 +38,51 @@ namespace :deploy do
 
     desc "Creates the symlink in www root to the rails application"
     task :rails do
-      run "ln -s #{deploy_to}/#{current_dir}/public #{apache_root}/#{application}"
+      run "ln -nfs #{deploy_to}/#{current_dir}/public #{apache_root}/#{application}"
     end
 
     desc "Creates the symlink in /etc/cron.daily to the reminders email script"
-    task :reminders, :use_sudo => true do
-      run "ln -s #{current_path}/script/reminders /etc/cron.daily/"
+    task :reminders do
+      run "ln -nfs #{current_path}/script/reminders /etc/cron.daily/"
     end
+    
+    after "deploy:setup", "deploy:symlinks:rails"
+    after "deploy:setup", "deploy:symlinks:reminders"
 
   end
   
+  namespace :config do
+    
+    desc "Prompts for the site-specific config after deploy:setup"
+    task :setup do
+      hostname = Capistrano::CLI.ui.ask("Production Web server: ")
+      smtp_server = Capistrano::CLI.ui.ask("Production SMTP server: ")
+      require 'yaml'
+      spec = {
+        "smtp_server" => smtp_server,
+        "hostname" => hostname
+      }
+      run "mkdir -p #{shared_path}/config"
+      put(spec.to_yaml, "#{shared_path}/config/config.yml")
+    end
+    
+    desc "Copies the config from shared area after each update"
+    task :update do
+      run "cp #{shared_path}/config/config.yml #{release_path}/config/config.yml"
+    end
+    
+    # Updates the path to the runner script in the reminders script
+    task :update_reminders_path do
+      run "sed -i 's/@current_path@/#{current_path}/' #{release_path}/script/reminders"
+    end
+    
+    after "deploy:setup", "deploy:config:setup"
+    after "deploy:finalize_update", "deploy:config:update"
+    after "deploy:finalize_update", "deploy:config:update_reminders_path"
+    
+  end
+  
 end
-
-after "deploy:cold", "deploy:symlinks:rails"
-after "deploy:cold", "deploy:symlinks:reminders"
 
 # The following sets up the production sqlite3 database
 namespace :db do
