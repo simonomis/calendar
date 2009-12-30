@@ -1,3 +1,11 @@
 <%= inline_stylesheet "application.css" %>
 
 <%= render "events/show", :event => @event %>
+
+<p>
+  <%= link_to 'View in Calendar',
+              calendar_url(:year => @event.start_at.year,
+                           :month => @event.start_at.month,
+                           :only_path => false)
+  %>
+</p>

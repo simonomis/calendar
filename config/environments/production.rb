@@ -12,13 +12,6 @@ config.action_view.cache_template_loading            = true
 # Prepend the calendar prefix to all urls
 config.action_controller.relative_url_root = "/calendar"
 
-# Configure the SMTP server for reminder emails
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-  :address => "relay.plus.net",
-  :port => 25
-}
-
 # See everything in the log (default is :info)
 # config.log_level = :debug
 
