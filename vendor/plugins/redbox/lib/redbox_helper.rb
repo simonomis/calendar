@@ -13,12 +13,12 @@ module RedboxHelper
   
   def link_to_remote_redbox(name, link_to_remote_options = {}, html_options = {})
     setup_remote_redbox(link_to_remote_options, html_options)
-    return build_hidden_content(@hidden_content_id) + link_to_remote(name, @link_to_remote_options, html_options)
+    build_hidden_content(@hidden_content_id) + link_to_remote(name, @link_to_remote_options, html_options)
   end
   
   def button_to_remote_redbox(name, link_to_remote_options = {}, html_options = {})
     setup_remote_redbox(link_to_remote_options, html_options)
-    return build_hidden_content(@hidden_content_id) + button_to_remote(name, @link_to_remote_options, html_options)
+    build_hidden_content(@hidden_content_id) + button_to_remote(name, @link_to_remote_options, html_options)
   end
   
   def link_to_close_redbox(name, html_options = {})
@@ -33,7 +33,7 @@ module RedboxHelper
   
   def launch_remote_redbox(link_to_remote_options = {}, html_options = {})
     setup_remote_redbox(link_to_remote_options, html_options)  
-    return build_hidden_content(@hidden_content_id) + javascript_tag(remote_function(@link_to_remote_options))
+    build_hidden_content(@hidden_content_id) + javascript_tag(remote_function(@link_to_remote_options))
   end
   
 private
