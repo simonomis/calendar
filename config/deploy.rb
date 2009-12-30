@@ -73,7 +73,7 @@ namespace :deploy do
     
     # Updates the path to the runner script in the reminders script
     task :update_reminders_path do
-      run "sed -i 's/@current_path@/#{current_path}/' #{release_path}/script/reminders"
+      run "sed -i \"s:@current_path@:#{current_path}:\" #{release_path}/script/reminders"
     end
     
     after "deploy:setup", "deploy:config:setup"
