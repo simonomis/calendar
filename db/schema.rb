@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091222225146) do
+ActiveRecord::Schema.define(:version => 20100102232216) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -19,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20091222225146) do
     t.datetime "updated_at"
     t.boolean  "all_day"
     t.text     "notes"
+    t.integer  "category_id"
   end
 
   create_table "reminders", :force => true do |t|
