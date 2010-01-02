@@ -12,6 +12,10 @@ module EventsHelper
     date_string ev.end_at, ev.all_day
   end
   
+  def event_time_style ev
+    ev.all_day ? "display: none;" : ""
+  end
+  
   def days_before_hash
     if not defined? $days_before_hash
       $days_before_hash = { 0 => "the same day", 1 => "the day before" }

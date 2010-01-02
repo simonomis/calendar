@@ -18,6 +18,10 @@
     <td class="event-label">to:</td>
     <td class="event-value"><%=h event_end_string(event) %></td>
   </tr>
+  <tr>
+    <td class="event-label">category:</td>
+    <td class="event-value"><%=h event.category.name %></td>
+  </tr>
 <% unless event.reminders.nil? or event.reminders.empty? -%>
   <tr>
     <td class="event-label">reminders:</td>

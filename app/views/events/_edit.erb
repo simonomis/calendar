@@ -1,9 +1,3 @@
-
-<%
-  # decide whether the datetime times should be displayed
-  style = event.all_day ? " style='display: none;'" : ""
-%>
-
 <% form_for(event) do |f| %>
   <%= f.error_messages %>
 
@@ -16,11 +10,15 @@
   </p>
   <p>
     <%= f.label :start_at %><br />
-    <%= f.datetime_select :start_at, :datetime_separator => "<span id='event_start_time'#{style}><br />", :minute_step => 15 %></span>
+    <%= f.datetime_select :start_at, :datetime_separator => "<span id='event_start_time' style='#{event_time_style(event)}'><br />", :minute_step => 15 %></span>
   </p>
   <p>
     <%= f.label :end_at %><br />
-    <%= f.datetime_select :end_at, :datetime_separator => "<span id='event_end_time'#{style}><br />", :minute_step => 15 %></span>
+    <%= f.datetime_select :end_at, :datetime_separator => "<span id='event_end_time' style='#{event_time_style(event)}'><br />", :minute_step => 15 %></span>
+  </p>
+  <p>
+    <%= f.label :category %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
   </p>
   <div id="reminders">
     <%= f.label :reminders %> <%= add_link f %><br />
