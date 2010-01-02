@@ -19,6 +19,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     set_default_start_and_end_times @event
+    set_default_category @event
 
     respond_to do |format|
       format.html # new.html.erb
@@ -87,6 +88,10 @@ private
   def set_default_start_and_end_times event
     event.start_at = Time.utc params[:year], params[:month], params[:day], 18, 00
     event.end_at = event.start_at + 1.hour
+  end
+  
+  def set_default_category event
+    event.category = Category.find_by_name("Home") || Category.first
   end
 
   def fix_times_for_all_day_event

@@ -7,6 +7,11 @@ class Event < ActiveRecord::Base
   belongs_to :category
   
   validates_presence_of :name, :start_at, :end_at
+  validates_associated :category
+  
+  def color
+    category.nil? ? '#9aa4ad' : category.color
+  end
   
 protected
   def validate_start_and_end
