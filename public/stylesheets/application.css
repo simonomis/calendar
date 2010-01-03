@@ -15,13 +15,13 @@ a {
 	font-weight: bold;
 }
 
-.notice {
+#notice {
 	margin: 20px;
 	color: green;
 	float: right;
 }
 
-.error {
+#error {
 	margin: 20px;
 	color: red;
 	float: right;

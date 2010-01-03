@@ -5,11 +5,8 @@ document.observe('dom:loaded', function() {
 	/* Hide the "Event created/updated/deleted" message when clicking on ajax links */
 	$$("a.ajax").each(function(el) {
 		$(el).observe('click', function() {
-			["div.notice", "div.error"].each(function(css_sel) {
-				var arr = $$(css_sel)
-				if (arr.length > 0) {
-					arr[0].hide();
-				}
+			$('notice', 'error').each(function(el2) {
+				if (el2 != null) el2.fade({ duration: 0.3 });
 			});
 		});
 	});

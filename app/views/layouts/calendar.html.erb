@@ -10,8 +10,8 @@
 </head>
 <body>
 
-<%= "<div class='notice'>#{flash[:notice]}</div>" if flash.has_key? :notice %>
-<%= "<div class='error'>#{flash[:error]}</div>" if flash.has_key? :error %>
+<%= "<div id='notice'>#{flash[:notice]}</div>" if flash.has_key? :notice %>
+<%= "<div id='error'>#{flash[:error]}</div>" if flash.has_key? :error %>
 
 <%= yield %>
 
