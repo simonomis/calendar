@@ -16,10 +16,24 @@ document.observe('dom:loaded', function() {
 	});
 	$$("div.ec-event-no-bg").each(function(el) {
 		$(el).observe('mouseover', function() {
-			el.setStyle({ color: highlight(el.readAttribute("data-color")) });
+			el.descendants().each(function(el2) {
+				if (el2.hasClassName("ec-bullet")) {
+					el2.setStyle({ backgroundColor: highlight(el.readAttribute("data-color")) });
+				}
+				else {
+					el2.setStyle({ color: highlight(el.readAttribute("data-color")) });
+				}
+			});
 		});
 		$(el).observe('mouseout', function() {
-			el.setStyle({ color: el.readAttribute("data-color") });
+			el.descendants().each(function(el2) {
+				if (el2.hasClassName("ec-bullet")) {
+					el2.setStyle({ backgroundColor: el.readAttribute("data-color") });
+				}
+				else {
+					el2.setStyle({ color: el.readAttribute("data-color") });
+				}
+			});
 		});
 	});
 	
