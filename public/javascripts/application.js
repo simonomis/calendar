@@ -5,7 +5,12 @@ document.observe('dom:loaded', function() {
 	/* Hide the "Event created/updated/deleted" message when clicking on ajax links */
 	$$("a.ajax").each(function(el) {
 		$(el).observe('click', function() {
-			$$("div.notice")[0].hide();
+			["div.notice", "div.error"].each(function(css_sel) {
+				var arr = $$(css_sel)
+				if (arr.length > 0) {
+					arr[0].hide();
+				}
+			});
 		});
 	});
 });
